@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String    @unique
+  products Product[]
+}
+
+model Product {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  price       Float
+  imageUrl    String
+  categoryId  String?     @db.ObjectId       // make it optional
+  category    Category?   @relation(fields: [categoryId], references: [id]) // make it optional
+  cartItems   CartItem[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+
+
+
+model User {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  email  String  @unique
+  name   String
+  carts  Cart[]  @relation("UserCarts") // 👈 relation to Cart
+}
+
+model Cart {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String      @db.ObjectId
+  user      User        @relation(fields: [userId], references: [id], name: "UserCarts") // 👈 reverse to User
+  items     CartItem[]  @relation("CartItemsRelation")
+  createdAt DateTime    @default(now())
+}
+
+model CartItem {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  cartId     String    @db.ObjectId
+  productId  String?   @db.ObjectId  // Make optional
+  quantity   Int
+
+  cart       Cart      @relation(fields: [cartId], references: [id], name: "CartItemsRelation")
+  product    Product?  @relation(fields: [productId], references: [id])  // Optional Product
+}
