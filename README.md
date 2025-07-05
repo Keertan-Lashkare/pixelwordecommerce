@@ -168,26 +168,38 @@ Server will run on:
 ---
 
 
-🌐Full Deployed API Endpoint URLs
-📂 Category APIs
-Method	Endpoint	Description
-GET	https://ecommercexd.onrender.com/categories	Fetch all product categories
-POST	https://ecommercexd.onrender.com/categories	Add new category
+## 🌐 Full Deployed API Endpoint URLs
 
-🛍️ Product APIs
-Method	Endpoint	Description
-GET	https://ecommercexd.onrender.com/products	List all products
-GET	https://ecommercexd.onrender.com/products/:id	Get product by ID
-POST	https://ecommercexd.onrender.com/products	Create new product
-PUT	https://ecommercexd.onrender.com/products/:id	Update product
-DELETE	https://ecommercexd.onrender.com/products/:id	Delete product
-GET	https://ecommercexd.onrender.com/products?category=Mobiles&search=iphone	Search/filter products
+### 📂 Category APIs
 
-🛒 Cart APIs
-Method	Endpoint	Description
-GET	https://ecommercexd.onrender.com/cart?userId=USER_ID	Get cart items for a user
-POST	https://ecommercexd.onrender.com/cart	Add product to cart
-DELETE	https://ecommercexd.onrender.com/cart/:itemId	Remove item from cart
+| Method | Endpoint                                              | Description                 |
+|--------|-------------------------------------------------------|-----------------------------|
+| GET    | https://ecommercexd.onrender.com/categories           | Fetch all product categories|
+| POST   | https://ecommercexd.onrender.com/categories           | Add new category            |
+
+---
+
+### 🛍️ Product APIs
+
+| Method | Endpoint                                                                 | Description             |
+|--------|--------------------------------------------------------------------------|-------------------------|
+| GET    | https://ecommercexd.onrender.com/products                                | List all products       |
+| GET    | https://ecommercexd.onrender.com/products/:id                            | Get product by ID       |
+| POST   | https://ecommercexd.onrender.com/products                                | Create new product      |
+| PUT    | https://ecommercexd.onrender.com/products/:id                            | Update product          |
+| DELETE | https://ecommercexd.onrender.com/products/:id                            | Delete product          |
+| GET    | https://ecommercexd.onrender.com/products?category=Mobiles&search=iphone | Search/filter products  |
+
+---
+
+### 🛒 Cart APIs
+
+| Method | Endpoint                                                        | Description               |
+|--------|-----------------------------------------------------------------|---------------------------|
+| GET    | https://ecommercexd.onrender.com/cart?userId=USER_ID            | Get cart items for a user |
+| POST   | https://ecommercexd.onrender.com/cart                           | Add product to cart       |
+| DELETE | https://ecommercexd.onrender.com/cart/:itemId                   | Remove item from cart     |
+
 
 ## ✅ Author
 
